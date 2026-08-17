@@ -109,6 +109,14 @@ Explore your model library:
 ai-models/vault-index.md → click model name links to deep dive docs
 ```
 
+### For Parallel Agent Execution
+```
+Spawn specialized subagents using Laguna S 2.1:
+1. docs/parallel-subagent-execution.md (workflow patterns)
+2. docs/repo-test-fix-skill (bug fixing automation)
+3. homework_parallel/async_summary.md + scraper.py (examples)
+```
+
 ---
 
 ## 🏷️ Tag Conventions
