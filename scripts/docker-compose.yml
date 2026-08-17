@@ -1,0 +1,118 @@
+version: '3.9'
+
+services:
+  # FastAPI Backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: llm-wiki-api:latest
+    container_name: llm-wiki-api
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - DATABASE_URL=postgresql://llm-wiki:securepass@db:5432/llm_wiki
+      - REDIS_URL=redis://cache:6379/0
+      - LOG_LEVEL=info
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    user: "1000:1000"
+
+  # Redis Cache
+  cache:
+    image: redis:7-alpine
+    container_name: llm-wiki-cache
+    ports:
+      - "6379:6379"
+    command:
+      - redis-server
+      - "--appendonly"
+      - "yes"
+      - "--maxmemory"
+      - "128mb"
+      - "--maxmemory-policy"
+      - "allkeys-lru"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          cpus: '0.05'
+          memory: 64M
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: llm-wiki-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=llm-wiki
+      - POSTGRES_PASSWORD=securepass
+      - POSTGRES_DB=llm_wiki
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U llm-wiki -d llm_wiki"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local

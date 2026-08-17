@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "total_nodes": 67,
+    "total_edges": 399,
+    "generated": "2026-08-17T16:15:51.761099"
+  },
+  "top_connected": [
+    [
+      "architecture-diagram",
+      {
+        "inbound_links": 0,
+        "outbound_links": 66,
+        "connected_tags": [
+          "ingest-2026-08-15",
+          "quality-assurance",
+          "testing",
+          "ai-model",
+          "documentation",
+          "#hardware/gpu-nvidia",
+          "automation",
+          "cross-reference",
+          "inter-linking",
+          "#context/128k"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "robotics-integration-main",
+      {
+        "inbound_links": 9,
+        "outbound_links": 25,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "vault-synthesis-summary",
+      {
+        "inbound_links": 1,
+        "outbound_links": 22,
+        "connected_tags": [
+          "#context/128k",
+          "ai-model",
+          "#hardware/gpu-nvidia",
+          "#balanced",
+          "#hardware/cpu-gpu",
+          "#context/8k"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "vault-index",
+      {
+        "inbound_links": 4,
+        "outbound_links": 13,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      ".summary_index",
+      {
+        "inbound_links": 1,
+        "outbound_links": 15,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "robotics-history",
+      {
+        "inbound_links": 6,
+        "outbound_links": 9,
+        "connected_tags": [
+          "research",
+          "ai-local",
+          "machine-learning"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "robotics-software",
+      {
+        "inbound_links": 6,
+        "outbound_links": 8,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "ai-foundation",
+      {
+        "inbound_links": 4,
+        "outbound_links": 9,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "robotics-hardware",
+      {
+        "inbound_links": 6,
+        "outbound_links": 7,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "master_index",
+      {
+        "inbound_links": 1,
+        "outbound_links": 11,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "cnc",
+      {
+        "inbound_links": 4,
+        "outbound_links": 8,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "human-humanrobot-collab",
+      {
+        "inbound_links": 2,
+        "outbound_links": 10,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "cam_workflow",
+      {
+        "inbound_links": 3,
+        "outbound_links": 8,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "AI-Models-Library",
+      {
+        "inbound_links": 0,
+        "outbound_links": 10,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "context-window-challenges",
+      {
+        "inbound_links": 5,
+        "outbound_links": 5,
+        "connected_tags": [
+          "ai-model",
+          "#hardware/gpu-nvidia",
+          "#context/128k"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "vision-perception-stack",
+      {
+        "inbound_links": 3,
+        "outbound_links": 7,
+        "connected_tags": [
+          "ai-model",
+          "#balanced",
+          "#hardware/cpu-gpu",
+          "#context/8k"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "python-git-cross-reference",
+      {
+        "inbound_links": 2,
+        "outbound_links": 8,
+        "connected_tags": [
+          "ingest-2026-08-15",
+          "machine-learning",
+          "python",
+          "testing",
+          "git",
+          "async",
+          "user-input"
+        ],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "optimization-tech",
+      {
+        "inbound_links": 7,
+        "outbound_links": 2,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "fusion360_workflow",
+      {
+        "inbound_links": 1,
+        "outbound_links": 8,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ],
+    [
+      "obsidian-backup-restore-guide",
+      {
+        "inbound_links": 5,
+        "outbound_links": 4,
+        "connected_tags": [],
+        "isolation_score": 0
+      }
+    ]
+  ],
+  "isolated_nodes": [
+    "CAD-CAM-workflow",
+    "G-code-programming",
+    "Precision-manufacturing",
+    "Robotics-integration",
+    "ubuntu commads"
+  ],
+  "by_tags": {
+    "ingest-2026-08-15": [
+      "org-231207756",
+      "unknown-user-input",
+      "deep-learning-fundamentals"
+    ],
+    "web-source": [
+      "org-231207756",
+      "unknown-user-input"
+    ],
+    "Obsidian": [
+      "SKILL"
+    ],
+    "Wiki": [
+      "SKILL"
+    ],
+    "Search": [
+      "SKILL"
+    ],
+    "Query": [
+      "SKILL"
+    ],
+    "machine-learning": [
+      "vault-index",
+      "qwen3.5-hermes-mathematical-optimization",
+      "deep-learning-fundamentals"
+    ],
+    "research": [
+      "vault-index"
+    ],
+    "ai-local": [
+      "vault-index"
+    ],
+    "ai-model": [
+      "gemma-3-27b",
+      "mistral-nemo-12b",
+      "qwen3.5-hermes-mathematical-optimization"
+    ],
+    "#context/128k": [
+      "gemma-3-27b"
+    ],
+    "#hardware/gpu-nvidia": [
+      "gemma-3-27b"
+    ],
+    "#hardware/cpu-gpu": [
+      "mistral-nemo-12b"
+    ],
+    "#context/8k": [
+      "mistral-nemo-12b"
+    ],
+    "#balanced": [
+      "mistral-nemo-12b"
+    ],
+    "hermes": [
+      "qwen3.5-hermes-mathematical-optimization"
+    ],
+    "qwen-family": [
+      "qwen3.5-hermes-mathematical-optimization"
+    ],
+    "user-input": [
+      "deep-learning-fundamentals"
+    ],
+    "git": [
+      "git-commands-reference"
+    ],
+    "testing": [
+      "git-commands-reference",
+      "python-async-tutorial",
+      "python-git-cross-reference"
+    ],
+    "async": [
+      "python-async-tutorial"
+    ],
+    "python": [
+      "python-async-tutorial"
+    ],
+    "cross-reference": [
+      "python-git-cross-reference"
+    ],
+    "inter-linking": [
+      "python-git-cross-reference"
+    ],
+    "demo": [
+      "research-synthesis-demo",
+      "wiki-integration-guide"
+    ],
+    "full-workflow": [
+      "research-synthesis-demo"
+    ],
+    "integration-test": [
+      "research-synthesis-demo"
+    ],
+    "documentation": [
+      "documentation-systems"
+    ],
+    "automation": [
+      "documentation-systems"
+    ],
+    "quality-assurance": [
+      "documentation-systems"
+    ],
+    "wiki-tutorial": [
+      "wiki-integration-guide"
+    ],
+    "examples": [
+      "wiki-integration-guide"
+    ],
+    "software-engineering": [
+      "software-engineer-agents-summary"
+    ],
+    "craftsmanship": [
+      "software-engineer-agents-summary"
+    ],
+    "agents": [
+      "software-engineer-agents-summary"
+    ],
+    "deployment": [
+      "software-engineer-agents-summary"
+    ],
+    "llm-wiki": [
+      "LLM-Wiki-Vault-Management"
+    ],
+    "obsidian": [
+      "LLM-Wiki-Vault-Management"
+    ],
+    "knowledge-management": [
+      "LLM-Wiki-Vault-Management"
+    ],
+    "vault-organization": [
+      "LLM-Wiki-Vault-Management"
+    ],
+    "reference": [
+      "frontmatter-templates",
+      "vault-navigation-cheatsheet"
+    ],
+    "template": [
+      "frontmatter-templates"
+    ],
+    "frontmatter": [
+      "frontmatter-templates"
+    ],
+    "cheat-sheet": [
+      "vault-navigation-cheatsheet"
+    ],
+    "vault-navigation": [
+      "vault-navigation-cheatsheet"
+    ]
+  }
+}

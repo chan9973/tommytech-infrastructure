@@ -1,0 +1,26 @@
+# Hermes Auto-Backup Log — Started: 2026-08-16
+# Author: Tommy Chan from Ipoh, Malaysia
+# Location: E:\tommy vault\tommy\Read & Write\memories\
+
+## Status: Ready for automation
+
+The backup task hasn't run yet. To start:
+
+### Option 1: Windows Task Scheduler GUI (Recommended)
+1. Open Task Scheduler → Create Task
+2. Triggers: Every 3 hours (or "Whenever you log on")
+3. Action: Run `backup-hermes.bat`
+
+### Option 2: Manual first run to verify
+Run in CMD/PowerShell as Administrator:
+```cmd
+E:\tommy vault\tommy\Read & Write\.hermes\scripts\backup-hermes.bat
+```
+
+After it runs, this log file will be updated automatically.
+
+## Next Steps
+
+1. Set up the task via Task Scheduler (see hermes-auto-backup-setup.md)
+2. Or run manually once to test and create the log entry
+3. Backups will then run every 3 hours automatically

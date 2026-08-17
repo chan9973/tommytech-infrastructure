@@ -1,0 +1,67 @@
+[
+  {
+    "timestamp": "2026-08-17T08:51:20.758086Z",
+    "original_record": {
+      "id": "user-003",
+      "name": "Charlie Brown",
+      "email": "invalid-email",
+      "age": 42,
+      "active": true,
+      "tags": [
+        "standard"
+      ]
+    },
+    "error": "Validation failed: email must be a valid email address",
+    "context": "validation",
+    "retry_count": 0
+  },
+  {
+    "timestamp": "2026-08-17T08:51:20.758166Z",
+    "original_record": {
+      "id": "user-004",
+      "name": "",
+      "email": "diana@example.com",
+      "age": 31,
+      "active": true
+    },
+    "error": "Validation failed: name must be a non-empty string",
+    "context": "validation",
+    "retry_count": 0
+  },
+  {
+    "timestamp": "2026-08-17T08:51:20.758234Z",
+    "original_record": {
+      "id": "user-005",
+      "name": "Eve Williams",
+      "email": "eve@example.com",
+      "age": -5,
+      "active": true
+    },
+    "error": "Validation failed: age must be a valid integer between 0 and 150",
+    "context": "validation",
+    "retry_count": 0
+  },
+  {
+    "timestamp": "2026-08-17T08:51:20.758303Z",
+    "original_record": {
+      "id": "user-008",
+      "name": "Henry Davis",
+      "email": "henry@example.com",
+      "age": 600,
+      "active": false
+    },
+    "error": "Validation failed: age must be a valid integer between 0 and 150",
+    "context": "validation",
+    "retry_count": 0
+  },
+  {
+    "timestamp": "2026-08-17T08:51:20.758368Z",
+    "original_record": {
+      "malformed": true,
+      "id": null
+    },
+    "error": "Validation failed: name must be a non-empty string; email must be a valid email address",
+    "context": "validation",
+    "retry_count": 0
+  }
+]

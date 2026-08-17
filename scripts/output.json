@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "total_processed": 5,
+    "total_failed": 5,
+    "timestamp": "2026-08-17T08:51:20.758770Z"
+  },
+  "records": [
+    {
+      "id": "user-001",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "age": 28,
+      "active": true,
+      "tags": [
+        "premium",
+        "verified"
+      ],
+      "metadata": {
+        "signup_date": "2024-01-15"
+      }
+    },
+    {
+      "id": "user-002",
+      "name": "Bob Smith",
+      "email": "bob@test.org",
+      "age": 35,
+      "active": false,
+      "tags": [
+        "inactive"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "user-006",
+      "name": "Frank Miller",
+      "email": "frank@example.com",
+      "age": 29,
+      "active": true,
+      "tags": [
+        "new",
+        "beta-tester"
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "x",
+      "name": "Grace Lee",
+      "email": "grace@example.com",
+      "age": 45,
+      "active": true,
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "id": "user-010",
+      "name": "Ivy Chen",
+      "email": "ivy@example.com",
+      "age": 26,
+      "active": true,
+      "tags": [
+        "vip",
+        "referral"
+      ],
+      "metadata": {}
+    }
+  ]
+}

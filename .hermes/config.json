@@ -1,0 +1,22 @@
+{
+  "skills": {
+    "hermes-llm-wiki": {
+      "enabled": true,
+      "inbox_dir": "Inbox",
+      "wiki_dir": "_wiki",
+      "auto_link": true,
+      "frontmatter": {
+        "status": "compiled",
+        "type": "concept"
+      }
+    }
+  },
+  "workspace": {
+    "vault_path": "E:/tommy vault/tommy vault/Read & Write",
+    "restricted_paths": [
+      ".private",
+      ".hermes/logs"
+    ]
+  },
+  "version": "1.0"
+}

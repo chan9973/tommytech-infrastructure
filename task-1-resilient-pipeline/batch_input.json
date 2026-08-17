@@ -1,0 +1,30 @@
+[
+  {
+    "order_id": 1001,
+    "product_name": "Widget A",
+    "quantity": 50,
+    "price": 25.99,
+    "customer_email": "alice@example.com"
+  },
+  {
+    "order_id": 1002,
+    "product_name": "Gadget B",
+    "quantity": 30,
+    "price": 49.99,
+    "customer_email": "bob@example.com"
+  },
+  {
+    "order_id": 1003,
+    "product_name": "SuperThing",
+    "quantity": 10,
+    "price": 199.5,
+    "customer_email": "carol@example.com"
+  },
+  {
+    "order_id": 8004,
+    "product_name": "MegaBox",
+    "quantity": 100,
+    "price": -5.0,
+    "customer_email": "dave@example.com"
+  }
+]
