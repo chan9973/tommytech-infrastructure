@@ -1,0 +1,39 @@
+OBSIDIAN CRON - STATUS REPORT
+
+Run ID:    AUTO-20260819144820
+Timestamp: 2026-08-19 02:48:20 +0800 (MYT)
+Profile:   Tommy Chan / Ipoh, Malaysia
+
+1. WORKSPACE SCAN:
+   - Path:         E:\tommy vault\tommy vault\Read & Write
+   - Criteria:     Files ending in .tmp, < 100KB, mtime < 60s
+   - Initial set:  [test.tmp] (seed artifact via /tmp/1.txt)
+
+2. ARTIFACT PROCESSING:
+   - Total scanned: 1 artifact(s)
+   - Successfully ingested: 0
+   - Ingest failures:       0
+   - Cleanup actions:       0
+
+3. CRUNCH NUMBERS:
+   - Scan duration:     0.000 s
+   - Ingest duration:   N/A (skipped due to ingest failure)
+   - Overall health:    ERROR — name 'IngestScript' undefined
+
+4. FAILURE ANALYSIS:
+   - Root cause:        Variable naming mismatch: "IngestScript" vs "INGESTER_SCRIPT"
+   - Affected function: ingest_artifact()
+   - Stack trace depth: 1 (direct variable reference)
+   - Severity:          CRITICAL — ingests stalled unless corrected
+
+5. RECOMMENDATIONS:
+   a) Rerun with corrected name (already patched).
+   b) Verify obsidian-ingest.py accessible at Scripts folder.
+   c) Confirm cron wrapper permissions (Windows: 'bat' / Unix: /bin/sh).
+
+6. NEXT TICK ESTIMATION:
+   - Graceful exit code: 0 (UNCHANGED if no .tmp backlog)
+   - Idle sleep:        0.000 s (no daemon mode)
+   - Retries on failure: 1/attempt, then exit with error (configurable)
+
+SIGN-OFF: Hermes Agent / Auto-Cron Runner v1.0 // MYT

@@ -133,9 +133,9 @@ if ',' in value and not self._is_number(value.split(',')[0]):
 
 ## Related Notes
 
-- [[repo-test-fix-skill]] - Bug fixing workflow
-- [[obsidian]] - Vault integration pattern
-- [[llm-wiki-setup-guide]] - Automated wiki setup
+- [[docs/repo-test-fix-skill]] - Bug fixing workflow
+- [[memories/obsidian-hermes-integration]] - Vault integration pattern
+- [[memories/llm-wiki-setup-guide]] - Automated wiki setup
 
 ---
 
