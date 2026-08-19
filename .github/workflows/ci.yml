@@ -1,0 +1,112 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Weekly scheduled scan
+    - cron: "0 3 * * 1"
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pip install --user bandit safety bandit-plugin-migration
+
+      - name: Run Bandit Security Scan
+        run: |
+          python -m bandit -r . -ll -ii -ff -aa -ss -tt -rcfile .bandit.yaml
+
+      - name: Run Safety Scan
+        run: |
+          safety check
+
+  code-quality:
+    runs-on: ubuntu-latest
+    needs: security-scan
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pip install --user flake8 black isort mypy
+
+      - name: Check Python formatting (black)
+        run: |
+          black --check .
+
+      - name: Check imports (isort)
+        run: |
+          isort --check-only .
+
+      - name: Run flake8
+        run: |
+          flake8 . --max-line-length=120
+
+  database-tests:
+    runs-on: ubuntu-latest
+    needs: security-scan
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES password: ${{ secrets.POSTGRES_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pytest psycopg2-binary
+
+      - name: Run database tests
+        run: |
+          DATABASE_URL="postgres://postgres:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/testdb" pytest tests/test_database.py
+
+  vector-storage-test:
+    runs-on: ubuntu-latest
+    needs: security-scan
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pip install --user duckdb sqlalchemy numpy
+
+      - name: Test DuckDB integration
+        run: |
+          python tests/test_vector_storage.py
+
+  deploy-main:
+    runs-on: ubuntu-latest
+    needs: [code-quality, database-tests, vector-storage-test]
+    if: github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run deployment
+        run: |
+          echo "Deploying to production pipeline..."
