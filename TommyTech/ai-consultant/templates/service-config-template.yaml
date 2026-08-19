@@ -1,0 +1,67 @@
+# TommyTech Autonomous AI Setup — Client Configuration
+# Usage: Copy this file, rename to client-config.yaml, customize per client
+
+client:
+  name: "Client Company Name"
+  contact: "Contact Person"
+  email: "contact@example.com"
+  location: "City, Country"
+  timezone: "UTC+8"  # Adjust for client location
+
+deployment:
+  method: "teamviewer"  # teamviewer | anydesk | pc-anywhere | local
+  remote_id: ""  # Remote session ID for TeamViewer/AnyDesk
+  access_level: "full"  # full | limited (admin rights)
+
+vault:
+  path: "E:/tommy vault/tommy vault/Read & Write"  # Default vault location
+  custom_path: false  # Set to true if client uses different path
+  create_if_missing: true
+
+ai_stack:
+  python_version: "3.11"  # Minimum required
+  ollama_model: "edtorre/qwen3.5-hermes:latest"  # Default model
+  provider: "local"  # local | nous-cloud | custom
+  base_url: "http://localhost:11434/v1"
+
+agents:
+  - name: "research-agent"
+    type: "research"
+    enabled: true
+    description: "Web research + wiki ingestion into Obsidian"
+    tools: [web_search, read_file, wiki_ingest, terminal]
+  - name: "coding-agent"
+    type: "coding"
+    enabled: true
+    description: "Local code assistance + script generation"
+    tools: [terminal, read_file, write_file, patch, execute_code]
+  - name: "support-agent"
+    type: "support"
+    enabled: true
+    language: "en"  # en | ms | id
+    description: "Customer support Q&A bot"
+    knowledge_base: "vault/Inbox/support-faq.md"
+
+obsidian:
+  plugins:
+    - name: "dataview"
+      version: "0.5.61"
+      install: true
+      enabled: true
+    - name: "quickadd"
+      version: "latest"
+      install: true
+      enabled: false  # Enable on request
+  templates_folder: "Templates"
+  dashboard_file: "dashboard.md"
+
+support:
+  duration_days: 14  # Days of post-setup support
+  response_sla_hours: 24  # Response time for support requests
+  contact_method: "telegram"  # telegram | email | whatsapp | signal
+
+output:
+  handover_pdf: true
+  handover_video: true  # Screen recording of setup
+  verification_report: true
+  client_portal_link: ""  # If using Notion/CRM for handover
