@@ -1,0 +1,13 @@
+[DEFAULT]
+# Skip common false positives for FLUX/AI infrastructure
+skip = C1010,C1011,C1012,C1013,C409,C410,C501,C510
+# Exclude from scan
+exclude = .venv, .git, dist, build, *.egg-info
+
+[skips]
+# Skip SQL injection for DuckDB/PostgreSQL
+skip = C611
+
+[blacklist]
+# Allow known secure libraries
+allowlist = psycopg2, duckdb, numpy, pandas, sqlalchemy

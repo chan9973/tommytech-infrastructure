@@ -1,0 +1,38 @@
+[project]
+name = "tommytech-infrastructure"
+version = "1.0.0"
+description = "TommyTech technical infrastructure (repo, CI/CD, security, vector store)"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = ["black", "isort", "flake8", "mypy", "pytest", "bandit", "safety"]
+database = ["psycopg2-binary", "sqlalchemy"]
+analytics = ["duckdb", "numpy", "pandas"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+exclude = "(.git|.venv|dist|build|*.egg-info)"
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.flake8]
+max-line-length = 120
+exclude = ".git,.venv,dist,build,*.egg-info"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+exclude = "(.git|.venv|dist|build|tests)"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --strict-markers"

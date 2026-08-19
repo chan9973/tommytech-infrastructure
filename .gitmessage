@@ -1,0 +1,5 @@
+[commitizen]
+msg_limit = 72
+commit_author_name = CTO
+commit_author_email = cto@tommytech.infrastructure
+allow_author_override = False

@@ -1,0 +1,17 @@
+name: TommyTech Infrastructure Team
+email: cto@tommytech.infrastructure
+roles:
+  - role: cto
+    name: Chief Technology Officer
+    permissions:
+      - global:write
+      - repository:read
+      - pull-request
+      - deployments:read
+      - security:read
+  - role: infrastructure-lead
+    name: Infrastructure Team Lead
+    permissions:
+      - pull-request
+      - repository:read
+      - security:read
