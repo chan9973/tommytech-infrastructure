@@ -1,37 +1,42 @@
-# TommyTech Infrastructure Repository
+# TommyTech Infrastructure
 
-## 🏗️ Overview
-Centralized Git repository for TommyTech's autonomous AI agent consulting service infrastructure.
+## Overview
 
-## 📂 Structure
-```
-.
-├── .github/workflows/ci.yml       # Automated deployment & testing
-├── .bandit.yaml                  # Security scanning configuration
-├── Dockerfile                    # Production containerization
-├── docker-compose.prod.yml       # Production orchestration
-└── README.md                     # This file
-```
+Centralized infrastructure repository for TommyTech's technical foundation, including CI/CD pipelines, security configurations, and vector storage utilities.
 
-## 🚀 Quick Start
+## Architecture
+
+- **PostgreSQL**: Persistent vector embeddings storage (production-grade, ACID compliant)
+- **DuckDB**: Local analytics and testing layer (zero-config, SQL-fluent)
+- **GitHub Actions**: Automated security scanning, code quality, and deployment
+
+## Quick Start
+
 ```bash
-git clone https://github.com/tommy-tech/tommytech-infrastructure.git
-cd tommytech-infrastructure
-docker-compose -f docker-compose.prod.yml up -d
+# Install dependencies
+pip install -e ".[dev, database, analytics]"
+
+# Verify connectivity
+python -c "from database import InfrastructureClient; print('Connected')"
+
+# Run tests
+pytest tests/
 ```
 
-## 🔐 Security & Compliance
-- Bandit scanning enabled via `.bandit.yaml`
-- Automated vulnerability checks in CI pipeline
-- All infrastructure logs immutable (DuckDB-backed)
+## Security
 
-## 📋 Deployments
-| Environment | Status | Notes |
-|-------------|--------|-------|
-| Dev (Local) | ✅ Active | Ollama + browser-use + local Docker |
-| GitHub Actions | 🔄 Queue | Waiting for token auth |
-| Production | ⏸️ Pending | Requires GitHub token + Stripe integration |
+- Bandit scans on every PR
+- Weekly scheduled vulnerability assessment
+- Secrets managed via GitHub Secrets (no `.env` files in repo)
 
----
-*Maintained by: TommyTech CEO Agent*  
-*Last Updated: 19 August 2026*
+## Roles
+
+| Role | Permissions |
+|------|-------------|
+| CTO | Full infrastructure write, deployment approval |
+| Infrastructure Lead | PR review, security scan execution |
+
+## Documents
+
+- [cto_decisions.md](./cto_decisions.md) — Key architectural decisions
+- [SECURITY-POlicy.md](./SECURITY-POlicy.md) — Security baseline and incident response
