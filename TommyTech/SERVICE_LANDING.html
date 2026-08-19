@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TommyTech — Autonomous AI Setup Service</title>
+  <style>
+    :root{
+      --fg:#0f0f23;
+      --muted:#636670;
+      --accent:#4f46e5;
+      --border:#e5e7eb;
+      --card:#ffffff;
+      --bg:#f8fafc;
+      --mint:#059669;
+      --amber:#d97706;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+    .container{max-width:960px;margin:0 auto;padding:2rem}
+    header{padding:3rem 0;border-bottom:1px solid var(--border);margin-bottom:2rem}
+    h1{font-size:2.5rem;font-weight:800;margin-bottom:.5rem}
+    .subtitle{font-size:1.25rem;color:var(--muted)}
+    .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:3rem 0}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .card.popular{border-color:var(--accent);position:relative}
+    .popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600}
+    .price{font-size:2.5rem;font-weight:800;margin:.5rem 0}
+    .price span{font-size:1rem;color:var(--muted);font-weight:400}
+    ul{margin:1rem 0;padding-left:1.5rem}
+    li{margin:.5rem 0}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.8rem 1.5rem;border-radius:8px;font-weight:600;text-decoration:none;transition:background .2s}
+    .btn:hover{background:#3731a2}
+    .btn-secondary{background:var(--mint);border:none}
+    .btn-secondary:hover{background:#047857}
+    table{width:100%;border-collapse:collapse;margin:2rem 0}
+    th,td{padding:.75rem;border-bottom:1px solid var(--border);text-align:left}
+    th{background:var(--accent);color:#fff;font-weight:600}
+    .section{margin:3rem 0}
+    .faq-item{margin-bottom:1.5rem}
+    .faq-q{font-weight:700;margin-bottom:.5rem}
+    .footer{text-align:center;padding:3rem 0;color:var(--muted);border-top:1px solid var(--border);margin-top:3rem}
+    .status-ok{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mint);margin-right:6px}
+    @media(max-width:640px){.container{padding:1rem}.price{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span class="status-ok"></span>
+        <span style="font-size:.85rem;color:var(--muted)">Now Accepting New Clients</span>
+      </div>
+      <h1>🖥️ Autonomous AI Setup Service</h1>
+      <p class="subtitle">Fully AI-driven deployment of local LLM agent clusters on your machine — no cloud, no coding required.</p>
+    </header>
+
+    <!-- Hero Pricing -->
+    <div class="price-grid">
+      <div class="card">
+        <h3>Personal</h3>
+        <div class="price">$500<span> one-time</span></div>
+        <p style="color:var(--muted);margin-bottom:1rem">Home lab, hobbyists, single use-case</p>
+        <ul>
+          <li>✓ 1 AI agent</li>
+          <li>✓ Basic vault setup</li>
+          <li>✓ 7-day support</li>
+          <li>✓ PDF handover</li>
+        </ul>
+        <a href="mailto:tommy@tommytech.com?subject=Personal AI Setup Inquiry" class="btn btn-secondary">Book Now</a>
+      </div>
+
+      <div class="card popular">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Business</h3>
+        <div class="price">$1,500<span> one-time</span></div>
+        <p style="color:var(--muted);margin-bottom:1rem">SME teams, 3-agent cluster, full support</p>
+        <ul>
+          <li>✓ 3 AI agents</li>
+          <li>✓ Full Obsidian vault</li>
+          <li>✓ 14-day support</li>
+          <li>✓ Video walkthrough</li>
+          <li>✓ Custom workflows</li>
+        </ul>
+        <a href="mailto:tommy@tommytech.com?subject=Business AI Setup Inquiry" class="btn">Book Now</a>
+      </div>
+
+      <div class="card">
+        <h3>Enterprise</h3>
+        <div class="price">$3,000<span> one-time</span></div>
+        <p style="color:var(--muted);margin-bottom:1rem">Team deployment, 5+ agents, custom builds</p>
+        <ul>
+          <li>✓ 5+ AI agents</li>
+          <li>✓ Custom workflows</li>
+          <li>✓ 30-day support</li>
+          <li>✓ Priority onboarding</li>
+          <li>✓ API integrations</li>
+        </ul>
+        <a href="mailto:tommy@tommytech.com?subject=Enterprise AI Setup Inquiry" class="btn btn-secondary">Contact Sales</a>
+      </div>
+    </div>
+
+    <!-- Agents Section -->
+    <div class="section">
+      <h2 style="font-size:1.75rem;margin-bottom:1rem">What You Get</h2>
+      <table>
+        <thead>
+          <tr><th>Agent</th><th>Purpose</th><th>Included In</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🔍 Research Agent</td><td>Web research + wiki ingestion into Obsidian</td><td>All tiers</td></tr>
+          <tr><td>💻 Coding Agent</td><td>Code assistance + script generation</td><td>All tiers</td></tr>
+          <tr><td>🤝 Support Agent</td><td>FAQ bot (EN/BM/ID) from your knowledge base</td><td>All tiers</td></tr>
+          <tr><td>📊 Analytics Agent</td><td>Dashboard reports + metric tracking</td><td>Business+</td></tr>
+          <tr><td>🔒 Compliance Agent</td><td>Auto SOC2/GDPR documentation</td><td>Enterprise</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Process Section -->
+    <div class="section">
+      <h2 style="font-size:1.75rem;margin-bottom:1rem">How It Works</h2>
+      <ol style="font-size:1.1rem">
+        <li style="margin-bottom:1rem"><strong>Book</strong> — 15-min call to assess your needs</li>
+        <li style="margin-bottom:1rem"><strong>Schedule</strong> — Pick a 2-hour remote session window</li>
+        <li style="margin-bottom:1rem"><strong>Deploy</strong> — Our AI does everything via TeamViewer/AnyDesk</li>
+        <li style="margin-bottom:1rem"><strong>Verify</strong> — Test run with your own data</li>
+        <li style="margin-bottom:1rem"><strong>Handover</strong> — Docs + training + support access</li>
+      </ol>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section">
+      <h2 style="font-size:1.75rem;margin-bottom:1rem">FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: Do you store my data?</div>
+        <p style="color:var(--muted)">A: No. Everything runs locally on your machine. Zero data leaves your system.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: What if I don't have admin rights?</div>
+        <p style="color:var(--muted)">A: We work with your IT team or use portable installations that don't require admin access.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: How long does setup take?</div>
+        <p style="color:var(--muted)">A: Typically 2–3 hours for a complete deployment.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: Can I upgrade later?</div>
+        <p style="color:var(--muted)">A: Yes. Upgrade from Personal to Business or Enterprise anytime with prorated pricing.</p>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="footer">
+      <p style="margin-bottom:1rem"><strong>Ready to automate your operations?</strong></p>
+      <p style="margin-bottom:2rem">Book a free 15-minute consultation — no commitment required.</p>
+      <a href="https://calendly.com/tommy-ai-consult" class="btn" style="font-size:1.1rem">📅 Book Free Consultation</a>
+      <p style="margin-top:2rem;font-size:.85rem">Or email: <a href="mailto:tommy@tommytech.com" style="color:var(--accent)">tommy@tommytech.com</a></p>
+    </div>
+
+  </div>
+</body>
+</html>
